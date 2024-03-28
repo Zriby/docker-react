@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t TestTag -f Dockerfile.dev .
+
+script:
+  - docker run TestTag npm run test -- --coverage
